@@ -32,7 +32,7 @@ public class A3Q7 {
         new Wall(kw, 2, 1, Direction.WEST);
         new Wall(kw, 1, 1, Direction.WEST);
         new Wall(kw, 1, 1, Direction.NORTH);
-        
+
         new Wall(kw, 1, 4, Direction.NORTH);
         new Wall(kw, 1, 4, Direction.WEST);
         new Wall(kw, 2, 4, Direction.WEST);
@@ -41,7 +41,7 @@ public class A3Q7 {
         new Wall(kw, 2, 5, Direction.EAST);
         new Wall(kw, 1, 5, Direction.EAST);
         new Wall(kw, 1, 5, Direction.NORTH);
-        
+
         new Wall(kw, 4, 1, Direction.NORTH);
         new Wall(kw, 4, 1, Direction.WEST);
         new Wall(kw, 5, 1, Direction.WEST);
@@ -50,7 +50,7 @@ public class A3Q7 {
         new Wall(kw, 5, 2, Direction.EAST);
         new Wall(kw, 4, 2, Direction.EAST);
         new Wall(kw, 4, 2, Direction.NORTH);
-        
+
         new Wall(kw, 4, 4, Direction.NORTH);
         new Wall(kw, 4, 4, Direction.WEST);
         new Wall(kw, 5, 4, Direction.WEST);
@@ -59,17 +59,40 @@ public class A3Q7 {
         new Wall(kw, 5, 5, Direction.EAST);
         new Wall(kw, 4, 5, Direction.EAST);
         new Wall(kw, 4, 5, Direction.NORTH);
-        
-        //create for loops (2 or 3) one inside of another
+
         //make a counter
         int counter = 0;
-        //make for loop
-        for(int i = 0; i < 5; i = i + 1){
+        //create for loops
+        for (int i = 0; i < 4; i = i + 1) {
             karel.move();
-        }for(int i = 0; i < 5; i = i + 1){
+            karel.move();
+            karel.move();
             karel.turnLeft();
-        }for(int i = 0; i < 5; i = i + 1){
+        }
+        for (int i = 4; i < 8; i = i + 1) {
+            karel.turnRight();
+            karel.move();
+            karel.move();
+            karel.move();
             karel.turnLeft();
+            karel.turnLeft();
+        }
+        for (int i = 8; i < 12; i = i + 1) {
+            karel.turnRight();
+            karel.turnRight();
+            karel.move();
+            karel.move();
+            karel.move();
+            karel.turnRight();
+        }
+        for (int i = 12; i < 16; i = i + 1) {
+            karel.turnLeft();
+            karel.move();
+            karel.move();
+            karel.move();
+            karel.turnLeft();
+            karel.turnRight();
+
         }
     }
 }
