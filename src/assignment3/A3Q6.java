@@ -43,32 +43,36 @@ public class A3Q6 {
         //step onto first part of path
         karel.move();
         //loop
-        while(true){
-        //if there are things pick them all up
-            if(karel.canPickThing()){
-            karel.pickAllThings();
+        while (true) {
+            if (karel.canPickThing()) {
+                karel.pickAllThings();
             }
-        // if 3 thing - move left
-            if(karel.countThingsInBackpack()== 3){
+            if (karel.getDirection() == Direction.SOUTH) {
                 karel.turnLeft();
                 karel.putThing();
                 karel.move();
-            }if(karel.countThingsInBackpack() == 2){
+            }
+            if (karel.isFacingEast()) {
                 karel.putThing();
                 karel.move();
-            }if(karel.countThingsInBackpack() == 1){
-                karel.putThing();
-                karel.turnAround();
-                karel.move();
-                //karel move to street 1 and avenue 2
-                karel.move();
-                karel.turnLeft();
-                karel.move();
-        }if(karel.countThingsInBackpack() == 2 && karel.getStreet()==2){
-                karel.putThing();
-                karel.turnLeft();
-                karel.move();
+                if (karel.countThingsInBackpack() == 0) {
+                    karel.turnAround();
+                    karel.move();
+                }
+                if (karel.isFacingWest()) {
+                    karel.move();
+                    while (karel.getAvenue() > 1) {
+                        karel.move();
+                    }
+                    if (karel.getAvenue() == 1) {
+                        karel.turnLeft();
+                        karel.move();
+                    }
+                }
+            }
+            if (karel.getAvenue() == 1 && karel.getStreet() == 5) {
+                break;
+            }
         }
-}
-}
+    }
 }
